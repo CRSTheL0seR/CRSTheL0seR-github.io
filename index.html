@@ -26,11 +26,49 @@
             padding: 20px;
         }
 
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 40px;
+            padding: 60px 40px;
             margin-bottom: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -55,31 +93,31 @@
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             background: linear-gradient(45deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
         }
 
         .profile-img i {
-            font-size: 60px;
+            font-size: 80px;
             color: white;
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            margin-bottom: 15px;
             background: linear-gradient(45deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -87,326 +125,325 @@
         }
 
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.4em;
             color: #666;
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
             color: #555;
-            transition: color 0.3s ease;
+            font-size: 1.1em;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .contact-item:hover {
             color: #667eea;
+            transform: translateY(-2px);
         }
 
-        .section {
+        .contact-item i {
+            font-size: 1.2em;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .hero-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .hero-description {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Quick Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Feature Cards */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
-            margin-bottom: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transform: translateY(20px);
-            opacity: 0;
-            animation: slideUp 0.8s ease forwards;
-        }
-
-        .section:nth-child(2) { animation-delay: 0.1s; }
-        .section:nth-child(3) { animation-delay: 0.2s; }
-        .section:nth-child(4) { animation-delay: 0.3s; }
-        .section:nth-child(5) { animation-delay: 0.4s; }
-        .section:nth-child(6) { animation-delay: 0.5s; }
-
-        @keyframes slideUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .section h2 {
-            color: #333;
-            margin-bottom: 25px;
-            font-size: 1.8em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            padding-bottom: 10px;
+            overflow: hidden;
         }
 
-        .section h2::after {
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 2px;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-category h3 {
-            color: #333;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 500;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.05);
-        }
-
-        .experience-item, .project-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border-left: 4px solid #4ecdc4;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .experience-item:hover, .project-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .experience-header, .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .job-title, .project-title {
-            font-weight: bold;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .company, .project-course {
-            color: #667eea;
-            font-weight: 500;
-        }
-
-        .date {
-            color: #666;
-            font-size: 0.9em;
-            background: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .responsibilities {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .responsibilities li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-            color: #555;
-        }
-
-        .responsibilities li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #4ecdc4;
-            font-size: 0.8em;
-        }
-
-        .education-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            border-left: 4px solid #96ceb4;
-        }
-
-        .degree {
-            font-weight: bold;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .institution {
-            color: #667eea;
-            font-weight: 500;
-        }
-
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .cert-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid #ff6b6b;
-            transition: transform 0.3s ease;
-        }
-
-        .cert-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .cert-title {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .cert-provider {
-            color: #667eea;
-            font-size: 0.9em;
-        }
-
-        .publication-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-
-        .pub-title {
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .pub-venue {
-            font-style: italic;
-            margin-bottom: 5px;
-        }
-
-        .floating-nav {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-link {
-            width: 45px;
-            height: 45px;
+        .feature-icon {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: linear-gradient(45deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.3s ease;
+            margin-bottom: 20px;
         }
 
-        .nav-link:hover {
-            transform: scale(1.1);
+        .feature-icon i {
+            font-size: 35px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .feature-link:hover {
+            color: #764ba2;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 15px;
             }
             
-            header {
-                padding: 30px 20px;
+            .navbar {
+                padding: 15px 20px;
+                margin-bottom: 20px;
             }
             
-            .section {
-                padding: 25px 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .contact-info {
+            .nav-links {
                 gap: 15px;
             }
             
-            .experience-header, .project-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .nav-link {
+                padding: 8px 15px;
+                font-size: 0.9em;
             }
             
-            .floating-nav {
-                bottom: 20px;
-                right: 20px;
+            header {
+                padding: 40px 30px;
             }
             
-            .skills-grid {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
+            }
+            
+            .contact-info {
+                gap: 20px;
+            }
+            
+            .contact-item {
+                font-size: 1em;
+            }
+            
+            .hero-section {
+                padding: 30px 25px;
+            }
+            
+            .hero-section h2 {
+                font-size: 2em;
+            }
+            
+            .hero-description {
+                font-size: 1.1em;
+            }
+            
+            .feature-cards {
                 grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                padding: 30px 25px;
+            }
+            
+            .cta-section {
+                padding: 40px 25px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="experience.html" class="nav-link">
+                    <i class="fas fa-briefcase"></i> Experience
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <i class="fas fa-project-diagram"></i> Projects
+                </a>
+                <a href="skills.html" class="nav-link">
+                    <i class="fas fa-cogs"></i> Skills
+                </a>
+                <a href="education.html" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </a>
+                <a href="publications.html" class="nav-link">
+                    <i class="fas fa-file-alt"></i> Publications
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
+        </nav>
+
+        <!-- Header -->
         <header>
             <div class="profile-img">
                 <i class="fas fa-user-graduate"></i>
@@ -429,247 +466,120 @@
             </div>
         </header>
 
-        <section class="section" id="about">
-            <h2><i class="fas fa-user"></i> About Me</h2>
-            <p>Highly motivated and technically adept mechanical engineering student at BUET with strong hands-on experience in CAD, CAE, FEM, and advanced simulation tools. Demonstrated expertise through leadership roles in university projects and competitive engineering teams such as BUET Mars Rover and Formula Student. Proficient in software tools like SolidWorks, ANSYS, Comsol, and programming in MATLAB and Python. Certified in SOLIDWORKS and FEA with research published in international conferences. Interested in applying multidisciplinary design and simulation skills in innovative mechanical systems and product development.</p>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>Welcome to My Engineering Portfolio</h2>
+            <p class="hero-description">
+                Highly motivated and technically adept mechanical engineering student at BUET with strong hands-on experience in CAD, CAE, FEM, and advanced simulation tools. Demonstrated expertise through leadership roles in university projects and competitive engineering teams such as BUET Mars Rover and Formula Student.
+            </p>
         </section>
 
-        <section class="section" id="skills">
-            <h2><i class="fas fa-cogs"></i> Expertise & Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-laptop-code"></i> Software</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AutoCAD</span>
-                        <span class="skill-tag">Fusion 360</span>
-                        <span class="skill-tag">SolidWorks</span>
-                        <span class="skill-tag">ANSYS</span>
-                        <span class="skill-tag">COMSOL</span>
-                        <span class="skill-tag">MSC Adams</span>
-                        <span class="skill-tag">Simulink</span>
-                        <span class="skill-tag">SimScale</span>
-                        <span class="skill-tag">Tecplot</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">MATLAB</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Fields</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">CAD</span>
-                        <span class="skill-tag">CAE</span>
-                        <span class="skill-tag">FEM</span>
-                        <span class="skill-tag">DFM</span>
-                        <span class="skill-tag">AM</span>
-                        <span class="skill-tag">Topology Optimization</span>
-                        <span class="skill-tag">Generative Design</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> ANSYS Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Mechanical</span>
-                        <span class="skill-tag">Fluent</span>
-                        <span class="skill-tag">LS-DYNA</span>
-                        <span class="skill-tag">ACP Pre & Post</span>
-                        <span class="skill-tag">Icepak</span>
-                        <span class="skill-tag">AM LPBF</span>
-                        <span class="skill-tag">DPM</span>
-                    </div>
-                </div>
+        <!-- Quick Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Years Experience</span>
             </div>
-        </section>
-
-        <section class="section" id="experience">
-            <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Technical Leader</div>
-                        <div class="company">Automaestro, BUET Formula Student Team</div>
-                    </div>
-                    <div class="date">Aug. 2023 - Present</div>
-                </div>
-                <ul class="responsibilities">
-                    <li>Instructed ANSYS Simulation Tools</li>
-                    <li>Engaged with Steering Knuckle Design, Simulation and Manufacturing</li>
-                    <li>Simulated and Optimized Bell Crank and engaged with CNC manufacturing</li>
-                    <li>Chassis Sub-team leadership</li>
-                </ul>
+            <div class="stat-card">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Software Tools</span>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Simulation Lead</div>
-                        <div class="company">Team Interplanetar-BUET Mars Rover Team</div>
-                    </div>
-                    <div class="date">2022 - 2025</div>
-                </div>
-                <ul class="responsibilities">
-                    <li>Instructed SOLIDWORKS 3D Design tool among 100 graduating students</li>
-                    <li>Design and Similar Lead at IRDC 2023</li>
-                    <li>Designed and Simulated Rocker-Bogie suspension for URC 2023 Competition</li>
-                </ul>
+            <div class="stat-card">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Major Projects</span>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Industrial Trainee</div>
-                        <div class="company">Berger Paints Bangladesh Limited</div>
-                    </div>
-                    <div class="date">10 Mar. 2025 - 23 Mar. 2025</div>
-                </div>
-                <ul class="responsibilities">
-                    <li>Visualize Representation of Reaction and Process Plant</li>
-                    <li>Manufacturing Process Monitoring</li>
-                    <li>Got Attached with Production Processes</li>
-                    <li>Industrial Problem Solving</li>
-                </ul>
+            <div class="stat-card">
+                <span class="stat-number">6+</span>
+                <span class="stat-label">Certifications</span>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Joint Secretary</div>
-                        <div class="company">IMechE BUET Student Chapter</div>
-                    </div>
-                    <div class="date">Jun. 2023 - Present</div>
-                </div>
-                <ul class="responsibilities">
-                    <li>Instructed a Drone Workshop, Organized by IMechE BUET Student Chapter</li>
-                    <li>Junior Executive responsibilities</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Technical Executive</div>
-                        <div class="company">BUET Automobile Club</div>
-                    </div>
-                    <div class="date">2022 - 2024</div>
-                </div>
-                <ul class="responsibilities">
-                    <li>Question Setter, CAD Contest 2023</li>
-                    <li>Organizing Committee, Autofest 2024</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section" id="education">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="education-item">
-                <div class="degree">B.S. in Mechanical Engineering</div>
-                <div class="institution">Bangladesh University of Engineering and Technology</div>
-                <div class="date">Dec. 2021 - Sept. 2026</div>
-            </div>
-            <div class="education-item">
-                <div class="degree">Higher School Certificate</div>
-                <div class="institution">Notre Dame College</div>
-                <div class="date">2018 - 2020</div>
-                <div style="margin-top: 5px; color: #666;">Group - Science</div>
-            </div>
-        </section>
-
-        <section class="section" id="projects">
-            <h2><i class="fas fa-project-diagram"></i> Featured Projects</h2>
-            
-            <div class="project-item">
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">Chimera - A Multimodal Mobility Morphobot</div>
-                        <div class="project-course">ME 366 Electro-Mechanical System Design and Practice</div>
-                    </div>
-                    <div class="date">L3-T1</div>
-                </div>
-                <p style="margin-bottom: 15px; color: #555; font-style: italic;">Chimera can move like a ground vehicle and fly like a drone</p>
-                <ul class="responsibilities">
-                    <li>Designed gear train system (for vehicle to drone conversion), Arm, Wheel, Body</li>
-                    <li>Modified wheel design for better aerodynamics performance</li>
-                    <li>Arduino coding for ground vehicle mode and vehicle to drone mode conversion</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">AQUASOL - Solar Desalinizer Enhancement using Evacuated Tube Collector</div>
-                        <div class="project-course">ME 310 Heat Transfer Equipment Design</div>
-                    </div>
-                    <div class="date">L3-T2</div>
-                </div>
-                <ul class="responsibilities">
-                    <li>Multiphase and CFD analysis</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section" id="publications">
-            <h2><i class="fas fa-file-alt"></i> Publications</h2>
-            <div class="publication-item">
-                <div class="pub-title">"A Study of Enhancing Thermal Comfort and Development of an Intelligent Efficient Cooling System for Parked Car Interiors"</div>
-                <div class="pub-venue">9th BSME International Conference on Thermal Engineering</div>
-                <div>Presenter • December 19-21, 2024 • Dhaka, Bangladesh</div>
-                <div style="margin-top: 10px; font-size: 0.9em;">Validate Experimental Data with CFD Analysis</div>
-            </div>
-        </section>
-
-        <section class="section" id="certifications">
-            <h2><i class="fas fa-certificate"></i> Honors & Certifications</h2>
-            <div class="certifications-grid">
-                <div class="cert-item">
-                    <div class="cert-title">CSWA - Certified SOLIDWORKS Associate (Mechanical Design)</div>
-                    <div class="cert-provider">2023 • Online</div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-title">Certified SOLIDWORKS Simulation Associate</div>
-                    <div class="cert-provider">2024 • Online</div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-title">Finite Element Analysis Convergence and Mesh Independence</div>
-                    <div class="cert-provider">2023 • Coursera</div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-title">ENGR2000X: A Hands-on Introduction to Engineering Simulations</div>
-                    <div class="cert-provider">2023 • edX</div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-title">Simulink Onramp</div>
-                    <div class="cert-provider">2023 • Online</div>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-title">Simscape Onramp</div>
-                    <div class="cert-provider">2023 • Online</div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="floating-nav">
-        <div class="nav-links">
-            <a href="mailto:chinmoyndc@gmail.com" class="nav-link" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="tel:+8801773719786" class="nav-link" title="Phone">
-                <i class="fas fa-phone"></i>
-            </a>
-            <a href="#top" class="nav-link" title="Back to top">
-                <i class="fas fa-arrow-up"></i>
-            </a>
         </div>
+
+        <!-- Feature Cards -->
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Professional Experience</h3>
+                <p>From Technical Leader at BUET Formula Student Team to Simulation Lead at Mars Rover Team, explore my diverse professional journey and leadership roles.</p>
+                <a href="experience.html" class="feature-link">
+                    View Experience <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3>Engineering Projects</h3>
+                <p>Discover innovative projects like Chimera Morphobot and AQUASOL Solar Desalinizer, showcasing multidisciplinary engineering solutions.</p>
+                <a href="projects.html" class="feature-link">
+                    Explore Projects <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Technical Skills</h3>
+                <p>Master of CAD, CAE, FEM, and simulation tools including SolidWorks, ANSYS, COMSOL, and programming in MATLAB, Python, and C++.</p>
+                <a href="skills.html" class="feature-link">
+                    View Skills <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Education & Certifications</h3>
+                <p>BUET Mechanical Engineering student with multiple professional certifications in SOLIDWORKS, ANSYS, and advanced simulation techniques.</p>
+                <a href="education.html" class="feature-link">
+                    View Education <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Research & Publications</h3>
+                <p>Published research on thermal comfort systems and intelligent cooling solutions, presented at international engineering conferences.</p>
+                <a href="publications.html" class="feature-link">
+                    Read Publications <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Innovation & Leadership</h3>
+                <p>Leading technical teams in competitive robotics, Formula Student racing, and Mars Rover challenges with innovative engineering solutions.</p>
+                <a href="experience.html" class="feature-link">
+                    See Leadership <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Collaborate?</h2>
+            <p>Let's work together on innovative mechanical engineering solutions and cutting-edge simulation projects.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+                <a href="projects.html" class="cta-button">
+                    <i class="fas fa-download"></i> View My Work
+                </a>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Add smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -683,11 +593,12 @@
             });
         });
 
-        // Add subtle parallax effect to header
+        // Add parallax effect to header
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const header = document.querySelector('header');
-            header.style.transform = `translateY(${scrolled * 0.1}px)`;
+            const rate = scrolled * -0.1;
+            header.style.transform = `translateY(${rate}px)`;
         });
 
         // Add intersection observer for animations
@@ -699,13 +610,18 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
+        // Animate feature cards on scroll
+        document.querySelectorAll('.feature-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
     </script>
 </body>
