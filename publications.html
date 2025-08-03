@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Chinmoy Ray Shaishab</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .page-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .featured-publication {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-publication::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .featured-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .publication-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pub-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .pub-venue {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .pub-details {
+            font-size: 1em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .pub-description {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .pub-metrics {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .pub-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pub-button {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pub-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .research-interests {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .interest-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #4ecdc4;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .interest-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .interest-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .interest-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .upcoming-research {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .research-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 80px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-status {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .timeline-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .collaboration-network {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .collaborators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .collaborator-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .collaborator-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .collaborator-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .collaborator-title {
+            color: #667eea;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .collaborator-institution {
+            color: #888;
+            font-size: 0.85em;
+        }
+
+        .research-tools {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tools-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tool-category {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #96ceb4;
+        }
+
+        .tool-category h4 {
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tool-tag {
+            background: linear-gradient(45deg, #96ceb4, #85c1a8);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .featured-publication {
+                padding: 40px 25px;
+            }
+
+            .pub-title {
+                font-size: 1.6em;
+            }
+
+            .pub-metrics {
+                justify-content: center;
+            }
+
+            .pub-actions {
+                justify-content: center;
+            }
+
+            .interests-grid, .collaborators-grid, .tools-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                padding: 30px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2em;
+            }
+
+            .research-interests, .upcoming-research, .collaboration-network, .research-tools {
+                padding: 30px 25px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-marker {
+                left: 10px;
+            }
+
+            .research-timeline::before {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="experience.html" class="nav-link">
+                    <i class="fas fa-briefcase"></i> Experience
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <i class="fas fa-project-diagram"></i> Projects
+                </a>
+                <a href="skills.html" class="nav-link">
+                    <i class="fas fa-cogs"></i> Skills
+                </a>
+                <a href="education.html" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </a>
+                <a href="publications.html" class="nav-link active">
+                    <i class="fas fa-file-alt"></i> Publications
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-file-alt"></i> Research & Publications</h1>
+            <p>Contributing to the advancement of thermal engineering and intelligent cooling systems through rigorous research and innovative solutions.</p>
+        </header>
+
+        <!-- Featured Publication -->
+        <section class="featured-publication">
+            <div class="featured-badge">FEATURED RESEARCH</div>
+            <div class="publication-content">
+                <h2 class="pub-title">"A Study of Enhancing Thermal Comfort and Development of an Intelligent Efficient Cooling System for Parked Car Interiors"</h2>
+                <div class="pub-venue">9th BSME International Conference on Thermal Engineering</div>
+                <div class="pub-details">Presenter • December 19-21, 2024 • Dhaka, Bangladesh</div>
+                <p class="pub-description">
+                    This research addresses the critical issue of thermal discomfort in parked vehicles by developing an intelligent cooling system that enhances passenger comfort while optimizing energy efficiency. The study combines experimental validation with comprehensive CFD analysis to create a practical solution for automotive thermal management.
+                </p>
+                
+                <div class="pub-metrics">
+                    <div class="metric-item">
+                        <span class="metric-number">35%</span>
+                        <span class="metric-label">Temperature Reduction</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">CFD</span>
+                        <span class="metric-label">Validated Analysis</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">2024</span>
+                        <span class="metric-label">Publication Year</span>
+                    </div>
+                </div>
+
+                <div class="pub-actions">
+                    <a href="#" class="pub-button">
+                        <i class="fas fa-file-pdf"></i> View Paper
+                    </a>
+                    <a href="#" class="pub-button">
+                        <i class="fas fa-presentation"></i> Presentation
+                    </a>
+                    <a href="#" class="pub-button">
+                        <i class="fas fa-chart-bar"></i> Research Data
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Interests -->
+        <section class="research-interests">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb"></i> Research Interests
+            </h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                Exploring cutting-edge solutions in thermal engineering, fluid dynamics, and intelligent systems design
+            </p>
+            
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <div class="interest-title">Thermal Management Systems</div>
+                    <div class="interest-description">
+                        Advanced thermal control systems for automotive and industrial applications, focusing on efficiency optimization and intelligent temperature regulation.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="interest-title">Computational Fluid Dynamics</div>
+                    <div class="interest-description">
+                        Multiphase flow analysis, heat transfer simulations, and validation of experimental data through advanced CFD methodologies.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="interest-title">Intelligent Systems Design</div>
+                    <div class="interest-description">
+                        Development of smart mechanical systems with autonomous control capabilities and adaptive performance optimization.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="interest-title">Sustainable Engineering</div>
+                    <div class="interest-description">
+                        Energy-efficient solutions and environmentally conscious design approaches for reduced environmental impact.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="interest-title">Automotive Engineering</div>
+                    <div class="interest-description">
+                        Vehicle thermal management, aerodynamics optimization, and advanced automotive system integration.
+                    </div>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="interest-title">Renewable Energy Systems</div>
+                    <div class="interest-description">
+                        Solar thermal systems, energy harvesting technologies, and sustainable power generation solutions.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Research -->
+        <section class="upcoming-research">
+            <h2 class="section-title">
+                <i class="fas fa-calendar-alt"></i> Research Pipeline
+            </h2>
+            
+            <div class="research-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-status">IN PROGRESS</div>
+                    <div class="timeline-title">Advanced Vehicle Thermal Optimization</div>
+                    <div class="timeline-description">
+                        Extended research on intelligent cooling systems incorporating machine learning algorithms for predictive thermal management and energy optimization.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-status">PLANNING</div>
+                    <div class="timeline-title">Multiphase Heat Transfer in Renewable Systems</div>
+                    <div class="timeline-description">
+                        Investigation of enhanced heat transfer mechanisms in solar desalination systems using advanced CFD modeling and experimental validation.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-status">PROPOSED</div>
+                    <div class="timeline-title">Smart Materials in Thermal Applications</div>
+                    <div class="timeline-description">
+                        Exploration of shape memory alloys and phase change materials for adaptive thermal management in extreme environments.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-status">FUTURE</div>
+                    <div class="timeline-title">AI-Driven Engineering Design</div>
+                    <div class="timeline-description">
+                        Integration of artificial intelligence and machine learning in mechanical system design optimization and performance prediction.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Network -->
+        <section class="collaboration-network">
+            <h2 class="section-title">
+                <i class="fas fa-users"></i> Research Collaborations
+            </h2>
+            
+            <div class="collaborators-grid">
+                <div class="collaborator-card">
+                    <div class="collaborator-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="collaborator-name">Dr. Md Aman Uddin</div>
+                    <div class="collaborator-title">Associate Professor</div>
+                    <div class="collaborator-institution">Department of Mechanical Engineering, BUET</div>
+                </div>
+
+                <div class="collaborator-card">
+                    <div class="collaborator-avatar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="collaborator-name">BUET Research Team</div>
+                    <div class="collaborator-title">Thermal Engineering Lab</div>
+                    <div class="collaborator-institution">Bangladesh University of Engineering and Technology</div>
+                </div>
+
+                <div class="collaborator-card">
+                    <div class="collaborator-avatar">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="collaborator-name">Industry Partners</div>
+                    <div class="collaborator-title">Industrial Collaboration</div>
+                    <div class="collaborator-institution">Automotive & Manufacturing Sectors</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Tools -->
+        <section class="research-tools">
+            <h2 class="section-title">
+                <i class="fas fa-toolbox"></i> Research Tools & Methodologies
+            </h2>
+            
+            <div class="tools-categories">
+                <div class="tool-category">
+                    <h4><i class="fas fa-desktop"></i> Simulation Software</h4>
+                    <div class="tool-list">
+                        <span class="tool-tag">ANSYS Fluent</span>
+                        <span class="tool-tag">COMSOL</span>
+                        <span class="tool-tag">SolidWorks Flow</span>
+                        <span class="tool-tag">ANSYS Mechanical</span>
+                        <span class="tool-tag">Tecplot</span>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h4><i class="fas fa-chart-line"></i> Analysis Tools</h4>
+                    <div class="tool-list">
+                        <span class="tool-tag">MATLAB</span>
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">Statistical Analysis</span>
+                        <span class="tool-tag">Data Visualization</span>
+                        <span class="tool-tag">Experimental Design</span>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h4><i class="fas fa-microscope"></i> Methodologies</h4>
+                    <div class="tool-list">
+                        <span class="tool-tag">CFD Analysis</span>
+                        <span class="tool-tag">FEA</span>
+                        <span class="tool-tag">Experimental Validation</span>
+                        <span class="tool-tag">Mesh Independence</span>
+                        <span class="tool-tag">Convergence Studies</span>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h4><i class="fas fa-flask"></i> Experimental Setup</h4>
+                    <div class="tool-list">
+                        <span class="tool-tag">Thermal Sensors</span>
+                        <span class="tool-tag">Data Acquisition</span>
+                        <span class="tool-tag">Controlled Environment</span>
+                        <span class="tool-tag">Measurement Systems</span>
+                        <span class="tool-tag">Calibration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Set initial state and observe elements
+        document.querySelectorAll('.interest-card, .timeline-item, .collaborator-card, .tool-category').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+
+        // Animate featured publication
+        const featuredPub = document.querySelector('.featured-publication');
+        featuredPub.style.opacity = '0';
+        featuredPub.style.transform = 'translateY(50px)';
+        featuredPub.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(featuredPub);
+    </script>
+</body>
+</html>
