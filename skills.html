@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Chinmoy Ray Shaishab</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .page-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .skills-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 35px;
+            color: white;
+        }
+
+        .skill-category h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .skill-count {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .skill-description {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .detailed-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .skill-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .skill-section h2 i {
+            font-size: 1.2em;
+            color: #667eea;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .skill-level {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .skill-progress {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+            width: 0%;
+        }
+
+        .skill-description-detailed {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .certification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(45px, #4ecdc4, #44a08d);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .tool-category {
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        .expertise-timeline {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .expertise-timeline h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline-skill {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .timeline-year {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 80px;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-skill-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .timeline-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .detailed-skills {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .page-header {
+                padding: 30px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2em;
+            }
+
+            .skill-section {
+                padding: 30px 25px;
+            }
+
+            .timeline-skill {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .timeline-year {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="experience.html" class="nav-link">
+                    <i class="fas fa-briefcase"></i> Experience
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <i class="fas fa-project-diagram"></i> Projects
+                </a>
+                <a href="skills.html" class="nav-link active">
+                    <i class="fas fa-cogs"></i> Skills
+                </a>
+                <a href="education.html" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </a>
+                <a href="publications.html" class="nav-link">
+                    <i class="fas fa-file-alt"></i> Publications
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-cogs"></i> Technical Skills & Expertise</h1>
+            <p>Comprehensive technical capabilities spanning CAD, CAE, FEM, programming, and advanced simulation tools with proven industry application.</p>
+        </header>
+
+        <!-- Skills Overview -->
+        <section class="skills-overview">
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <h3>CAD/CAE Software</h3>
+                <div class="skill-count">9+</div>
+                <p class="skill-description">Professional-grade design and simulation tools</p>
+            </div>
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Programming Languages</h3>
+                <div class="skill-count">3+</div>
+                <p class="skill-description">Technical computing and automation</p>
+            </div>
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>ANSYS Modules</h3>
+                <div class="skill-count">7+</div>
+                <p class="skill-description">Advanced simulation and analysis tools</p>
+            </div>
+            <div class="skill-category">
+                <div class="skill-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Certifications</h3>
+                <div class="skill-count">6+</div>
+                <p class="skill-description">Industry-recognized qualifications</p>
+            </div>
+        </section>
+
+        <!-- Detailed Skills Sections -->
+        <div class="detailed-skills">
+            <!-- CAD/CAE Software -->
+            <section class="skill-section">
+                <h2><i class="fas fa-drafting-compass"></i> CAD/CAE Software</h2>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">SolidWorks</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="95%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Advanced 3D modeling, assembly design, and simulation. Certified SOLIDWORKS Associate with extensive experience in complex mechanical systems.</p>
+                    <div class="certification-badge">
+                        <i class="fas fa-medal"></i> CSWA Certified
+                    </div>
+                    <div class="certification-badge">
+                        <i class="fas fa-medal"></i> Simulation Associate
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">ANSYS</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="90%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Comprehensive FEA, CFD, and multiphysics simulations. Proficient in Mechanical, Fluent, LS-DYNA, and specialized modules.</p>
+                    <div class="certification-badge">
+                        <i class="fas fa-medal"></i> ANSYS Certified
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">COMSOL Multiphysics</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="85%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Multiphysics modeling and simulation for complex engineering problems including heat transfer and fluid dynamics.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">AutoCAD</span>
+                        <span class="skill-level">Proficient</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="80%"></div>
+                    </div>
+                    <p class="skill-description-detailed">2D drafting and 3D modeling for mechanical engineering applications and technical documentation.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Fusion 360</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="75%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Cloud-based 3D CAD, CAM, and CAE tool for product development and manufacturing preparation.</p>
+                </div>
+            </section>
+
+            <!-- Programming Languages -->
+            <section class="skill-section">
+                <h2><i class="fas fa-code"></i> Programming Languages</h2>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">MATLAB</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="90%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Technical computing, data analysis, algorithm development, and control system design. Extensive use in simulation and optimization.</p>
+                    <div class="certification-badge">
+                        <i class="fas fa-medal"></i> Simulink Certified
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="75%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Data analysis, automation, scientific computing, and engineering applications using NumPy, SciPy, and matplotlib.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">C++</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="70%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Object-oriented programming for engineering applications, embedded systems, and high-performance computing.</p>
+                </div>
+            </section>
+
+            <!-- ANSYS Specialized Tools -->
+            <section class="skill-section">
+                <h2><i class="fas fa-chart-line"></i> ANSYS Specialized Modules</h2>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">ANSYS Mechanical</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="95%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Structural analysis, linear and nonlinear FEA, modal analysis, and fatigue studies for mechanical components.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">ANSYS Fluent</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="85%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Computational fluid dynamics for complex flow problems, heat transfer, and multiphase simulations.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">ANSYS LS-DYNA</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="70%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Explicit dynamics simulation for crash analysis, impact studies, and high-strain rate phenomena.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">ANSYS ACP (Composite)</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="65%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Composite material analysis including pre-processing and post-processing of layered structures.</p>
+                </div>
+            </section>
+
+            <!-- Engineering Fields -->
+            <section class="skill-section">
+                <h2><i class="fas fa-tools"></i> Engineering Specializations</h2>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Finite Element Analysis (FEA)</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="90%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Advanced structural analysis, mesh independence studies, convergence analysis, and validation techniques.</p>
+                    <div class="certification-badge">
+                        <i class="fas fa-medal"></i> FEA Certified
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Computational Fluid Dynamics</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="85%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Flow analysis, heat transfer simulations, turbulence modeling, and multiphase flow studies.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Topology Optimization</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="75%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Design optimization for weight reduction while maintaining structural integrity and performance requirements.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Design for Manufacturing (DFM)</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-width="80%"></div>
+                    </div>
+                    <p class="skill-description-detailed">Manufacturing-oriented design principles, CNC machining considerations, and production optimization.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tools Grid -->
+        <section class="skill-section">
+            <h2><i class="fas fa-toolbox"></i> Additional Tools & Software</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="tool-name">MSC Adams</div>
+                    <div class="tool-category">Multibody Dynamics</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="tool-name">Simulink</div>
+                    <div class="tool-category">System Modeling</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="tool-name">SimScale</div>
+                    <div class="tool-category">Cloud Simulation</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <div class="tool-name">Tecplot</div>
+                    <div class="tool-category">Post-Processing</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <div class="tool-name">ANSYS Icepak</div>
+                    <div class="tool-category">Thermal Analysis</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="tool-name">ANSYS AM LPBF</div>
+                    <div class="tool-category">Additive Manufacturing</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="tool-name">ANSYS DPM</div>
+                    <div class="tool-category">Particle Modeling</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="tool-name">Simscape</div>
+                    <div class="tool-category">Physical Modeling</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skill Development Timeline -->
+        <section class="expertise-timeline">
+            <h2><i class="fas fa-timeline"></i> Skill Development Journey</h2>
+            
+            <div class="timeline-skill">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-content">
+                    <div class="timeline-skill-name">Foundation in CAD/CAE</div>
+                    <div class="timeline-description">Started with AutoCAD and basic SolidWorks, developed fundamental 3D modeling skills</div>
+                </div>
+            </div>
+
+            <div class="timeline-skill">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-content">
+                    <div class="timeline-skill-name">Advanced SOLIDWORKS & MATLAB</div>
+                    <div class="timeline-description">Mastered complex assemblies, simulation, and technical computing with MATLAB programming</div>
+                </div>
+            </div>
+
+            <div class="timeline-skill">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-content">
+                    <div class="timeline-skill-name">ANSYS Mastery & Certifications</div>
+                    <div class="timeline-description">Achieved professional certifications in SOLIDWORKS, ANSYS, and FEA methodologies</div>
+                </div>
+            </div>
+
+            <div class="timeline-skill">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-content">
+                    <div class="timeline-skill-name">Specialized Simulation & Leadership</div>
+                    <div class="timeline-description">Advanced multiphysics simulations, team leadership in technical projects, and industry training</div>
+                </div>
+            </div>
+
+            <div class="timeline-skill">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-content">
+                    <div class="timeline-skill-name">Professional Application & Innovation</div>
+                    <div class="timeline-description">Industrial experience, research publication, and cutting-edge engineering solutions</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animate progress bars on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.progress-bar');
+                    if (progressBar) {
+                        const width = progressBar.getAttribute('data-width');
+                        progressBar.style.width = width;
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all skill items
+        document.querySelectorAll('.skill-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Animate cards on scroll
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Set initial state and observe cards
+        document.querySelectorAll('.skill-category, .tool-card, .timeline-skill').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
