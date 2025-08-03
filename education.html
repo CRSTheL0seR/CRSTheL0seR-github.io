@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Chinmoy Ray Shaishab</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .page-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .education-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .education-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .university-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 40px;
+            color: white;
+        }
+
+        .degree-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .institution-name {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .duration {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .current-status {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .degree-details {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .degree-details h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .achievement-list {
+            list-style: none;
+        }
+
+        .achievement-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        .achievement-list li::before {
+            content: '🎓';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .certification-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 25px;
+            color: white;
+        }
+
+        .cert-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .cert-provider {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .cert-year {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .cert-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .cert-badge {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .cert-skills {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .cert-skills h5 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-badge {
+            background: linear-gradient(45deg, #96ceb4, #85c1a8);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7em;
+            font-weight: 500;
+        }
+
+        .academic-achievements {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #4ecdc4;
+        }
+
+        .achievement-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .achievement-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .achievement-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .learning-journey {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .journey-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .journey-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 80px;
+        }
+
+        .journey-marker {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .journey-year {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .journey-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .journey-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .page-header {
+                padding: 30px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2em;
+            }
+
+            .education-card, .academic-achievements, .learning-journey {
+                padding: 30px 25px;
+            }
+
+            .journey-timeline::before {
+                left: 20px;
+            }
+
+            .journey-item {
+                padding-left: 60px;
+            }
+
+            .journey-marker {
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="experience.html" class="nav-link">
+                    <i class="fas fa-briefcase"></i> Experience
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <i class="fas fa-project-diagram"></i> Projects
+                </a>
+                <a href="skills.html" class="nav-link">
+                    <i class="fas fa-cogs"></i> Skills
+                </a>
+                <a href="education.html" class="nav-link active">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </a>
+                <a href="publications.html" class="nav-link">
+                    <i class="fas fa-file-alt"></i> Publications
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-graduation-cap"></i> Education & Certifications</h1>
+            <p>Academic foundation and professional qualifications in mechanical engineering, simulation, and advanced technical disciplines.</p>
+        </header>
+
+        <!-- Education Section -->
+        <section class="education-section">
+            <h2 class="section-title">
+                <i class="fas fa-university"></i> Academic Background
+            </h2>
+            
+            <div class="education-grid">
+                <!-- BUET Education -->
+                <div class="education-card">
+                    <div class="current-status">CURRENT</div>
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="degree-title">Bachelor of Science in Mechanical Engineering</div>
+                    <div class="institution-name">Bangladesh University of Engineering and Technology (BUET)</div>
+                    <div class="location">Dhaka, Bangladesh</div>
+                    <div class="duration">December 2021 - September 2026</div>
+                    
+                    <div class="degree-details">
+                        <h4>Program Highlights</h4>
+                        <ul class="achievement-list">
+                            <li>Comprehensive curriculum covering advanced mechanical engineering principles</li>
+                            <li>Specialized coursework in CAD/CAE, FEM, and simulation technologies</li>
+                            <li>Hands-on experience with industry-standard engineering software</li>
+                            <li>Active participation in competitive engineering teams and research projects</li>
+                            <li>Leadership roles in student organizations and technical societies</li>
+                            <li>Published research in international engineering conferences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Notre Dame College -->
+                <div class="education-card">
+                    <div class="university-logo">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="degree-title">Higher School Certificate (HSC)</div>
+                    <div class="institution-name">Notre Dame College</div>
+                    <div class="location">Dhaka, Bangladesh</div>
+                    <div class="duration">2018 - 2020</div>
+                    
+                    <div class="degree-details">
+                        <h4>Academic Focus</h4>
+                        <ul class="achievement-list">
+                            <li>Science Group specialization with emphasis on Mathematics and Physics</li>
+                            <li>Strong foundation in analytical and problem-solving skills</li>
+                            <li>Preparation for engineering entrance examinations</li>
+                            <li>Development of scientific reasoning and research methodologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Achievements -->
+        <section class="academic-achievements">
+            <h2 class="section-title">
+                <i class="fas fa-trophy"></i> Academic Achievements
+            </h2>
+            
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="achievement-title">Research Publication</div>
+                    <div class="achievement-description">Published research at BSME International Conference on Thermal Engineering</div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="achievement-title">Team Leadership</div>
+                    <div class="achievement-description">Technical Leader positions in competitive engineering teams</div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="achievement-title">Teaching & Training</div>
+                    <div class="achievement-description">Instructed 100+ students in SOLIDWORKS and engineering design</div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="achievement-title">Competition Participation</div>
+                    <div class="achievement-description">Active participation in Mars Rover and Formula Student competitions</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="education-section">
+            <h2 class="section-title">
+                <i class="fas fa-certificate"></i> Professional Certifications
+            </h2>
+            
+            <div class="certifications-grid">
+                <!-- SOLIDWORKS CSWA -->
+                <div class="certification-card">
+                    <div class="cert-badge">CERTIFIED</div>
+                    <div class="cert-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="cert-title">Certified SOLIDWORKS Associate (CSWA) - Mechanical Design</div>
+                    <div class="cert-provider">Dassault Systèmes SOLIDWORKS Corporation</div>
+                    <div class="cert-year">2023 • Online Certification</div>
+                    <div class="cert-description">
+                        Professional certification validating competency in SOLIDWORKS fundamentals, including part modeling, assembly creation, and drawing generation.
+                    </div>
+                    <div class="cert-skills">
+                        <h5>Skills Validated:</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">3D Modeling</span>
+                            <span class="skill-badge">Assembly Design</span>
+                            <span class="skill-badge">Technical Drawings</span>
+                            <span class="skill-badge">Feature-Based Modeling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOLIDWORKS Simulation -->
+                <div class="certification-card">
+                    <div class="cert-badge">CERTIFIED</div>
+                    <div class="cert-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="cert-title">Certified SOLIDWORKS Simulation Associate</div>
+                    <div class="cert-provider">Dassault Systèmes SOLIDWORKS Corporation</div>
+                    <div class="cert-year">2024 • Online Certification</div>
+                    <div class="cert-description">
+                        Advanced certification demonstrating proficiency in finite element analysis using SOLIDWORKS Simulation for structural analysis and design validation.
+                    </div>
+                    <div class="cert-skills">
+                        <h5>Skills Validated:</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">FEA</span>
+                            <span class="skill-badge">Stress Analysis</span>
+                            <span class="skill-badge">Design Validation</span>
+                            <span class="skill-badge">Result Interpretation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEA Coursera -->
+                <div class="certification-card">
+                    <div class="cert-badge">COMPLETED</div>
+                    <div class="cert-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <div class="cert-title">Finite Element Analysis Convergence and Mesh Independence</div>
+                    <div class="cert-provider">Coursera</div>
+                    <div class="cert-year">2023 • Online Course</div>
+                    <div class="cert-description">
+                        Specialized course focusing on FEA fundamentals, mesh convergence studies, and ensuring accurate simulation results through proper mesh refinement techniques.
+                    </div>
+                    <div class="cert-skills">
+                        <h5>Skills Acquired:</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">Mesh Convergence</span>
+                            <span class="skill-badge">FEA Theory</span>
+                            <span class="skill-badge">Simulation Accuracy</span>
+                            <span class="skill-badge">Error Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANSYS edX -->
+                <div class="certification-card">
+                    <div class="cert-badge">CERTIFIED</div>
+                    <div class="cert-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="cert-title">ENGR2000X: A Hands-on Introduction to Engineering Simulations</div>
+                    <div class="cert-provider">edX (ANSYS)</div>
+                    <div class="cert-year">2023 • Online Certification</div>
+                    <div class="cert-description">
+                        Comprehensive introduction to engineering simulations using ANSYS software, covering structural, thermal, and fluid analysis fundamentals.
+                    </div>
+                    <div class="cert-skills">
+                        <h5>Skills Acquired:</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">ANSYS Workbench</span>
+                            <span class="skill-badge">Structural Analysis</span>
+                            <span class="skill-badge">Thermal Analysis</span>
+                            <span class="skill-badge">CFD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulink -->
+                <div class="certification-card">
+                    <div class="cert-badge">COMPLETED</div>
+                    <div class="cert-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="cert-title">Simulink Onramp</div>
+                    <div class="cert-provider">MathWorks</div>
+                    <div class="cert-year">2023 • Online Course</div>
+                    <div class="cert-description">
+                        Interactive course covering Simulink fundamentals for modeling, simulating, and analyzing dynamic systems across various engineering disciplines.
+                    </div>
+                    <div class="cert-skills">
+                        <h5>Skills Acquired:</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">System Modeling</span>
+                            <span class="skill-badge">Control Systems</span>
+                            <span class="skill-badge">Dynamic Simulation</span>
+                            <span class="skill-badge">MATLAB Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simscape -->
+                <div class="certification-card">
+                    <div class="cert-badge">COMPLETED</div>
+                    <div class="cert-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="cert-title">Simscape Onramp</div>
+                    <div class="cert-provider">MathWorks</div>
+                    <div class="cert-year">2023 • Online Course</div>
+                    <div class="cert-description">
+                        Specialized training in physical system modeling using Simscape for multibody dynamics, electrical, and hydraulic system simulations.
+                    </div>
+                    <div class="cert-skills">
+                        <h5>Skills Acquired:</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">Physical Modeling</span>
+                            <span class="skill-badge">Multibody Dynamics</span>
+                            <span class="skill-badge">System Integration</span>
+                            <span class="skill-badge">Component Libraries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Journey -->
+        <section class="learning-journey">
+            <h2 class="section-title">
+                <i class="fas fa-road"></i> Continuous Learning Journey
+            </h2>
+            
+            <div class="journey-timeline">
+                <div class="journey-item">
+                    <div class="journey-marker"></div>
+                    <div class="journey-year">2021</div>
+                    <div class="journey-title">Engineering Foundation</div>
+                    <div class="journey-description">Started Bachelor's degree at BUET, established strong fundamentals in mathematics, physics, and engineering principles</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker"></div>
+                    <div class="journey-year">2022</div>
+                    <div class="journey-title">CAD/CAE Specialization</div>
+                    <div class="journey-description">Developed expertise in SOLIDWORKS, began advanced simulation studies, joined competitive engineering teams</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker"></div>
+                    <div class="journey-year">2023</div>
+                    <div class="journey-title">Professional Certifications</div>
+                    <div class="journey-description">Achieved multiple industry certifications in SOLIDWORKS, ANSYS, and specialized simulation techniques</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker"></div>
+                    <div class="journey-year">2024</div>
+                    <div class="journey-title">Leadership & Teaching</div>
+                    <div class="journey-description">Assumed technical leadership roles, began instructing fellow students, advanced to specialized simulation certifications</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker"></div>
+                    <div class="journey-year">2025</div>
+                    <div class="journey-title">Research & Innovation</div>
+                    <div class="journey-description">Published research findings, completed industrial training, preparing for graduate studies and advanced specialization</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Set initial state and observe elements
+        document.querySelectorAll('.education-card, .certification-card, .achievement-item, .journey-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
